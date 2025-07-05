@@ -440,5 +440,5 @@ def book_appointment():
 # ---------------------------------------
 # MAIN
 # ---------------------------------------
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
