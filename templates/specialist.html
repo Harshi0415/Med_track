@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Directory | MedTrack</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fa;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #0077b6;
+            color: white;
+        }
+
+        .header h2 {
+            margin: 0;
+        }
+
+        .header a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #00b4d8;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        th {
+            background-color: #0077b6;
+            color: white;
+        }
+
+        .btn {
+            background-color: #0096c7;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #e51e1e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="header">
+        <h2>Select Your Doctor</h2>
+        <a href="{{ url_for('doctor_profile') }}" style="background-color: #e51e1e;">Register as Doctor</a>
+    </div>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Doctor Name</th>
+                    <th>Experience</th>
+                    <th>Specialist In</th>
+                    <th>Qualifications</th>
+                    <th>Availability</th>
+                    <!--<th>Book Appointment</th>-->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Static doctor entries -->
+                <tr>
+                    <td>Dr. Priya Mehta</td>
+                    <td>12 years</td>
+                    <td>Cardiologist</td>
+                    <td>MBBS, MD (Cardiology)</td>
+                    <td>Mon - Fri (10 AM - 4 PM)</td>
+                    <!--<td><a href="#" class="btn">Book Now</a></td>-->
+                </tr>
+
+                <tr>
+                    <td>Dr. Vikram Shah</td>
+                    <td>15 years</td>
+                    <td>Neurologist</td>
+                    <td>MBBS, DM (Neurology)</td>
+                    <td>Mon - Fri (10 AM - 3 PM)</td>
+                   <!-- <td><a href="#" class="btn">Book Now</a></td>-->
+                </tr>
+                <tr>
+                    <td>Dr. Chandrasekharan</td>
+                    <td>4 years</td>
+                    <td>General Physician</td>
+                    <td>MBBS</td>
+                    <td>Mon - Fri (10 AM - 6 PM)</td>
+                   <!-- <td><a href="#" class="btn">Book Now</a></td>-->
+                </tr>
+                <tr>
+                    <td>Dr. Nirmala Devi</td>
+                    <td>5 years</td>
+                    <td>Gynecologist</td>
+                    <td>MBBS, DM (Gynecology)</td>
+                    <td>Mon - Fri (10 AM - 9 PM)</td>
+                   <!--<td><a href="#" class="btn">Book Now</a></td>-->
+                </tr>
+                <tr>
+                    <td>Dr. Radhika</td>
+                    <td>8 years</td>
+                    <td>Psychiatrist</td>
+                    <td>MBBS, DM (Psychiatry)</td>
+                    <td>Mon - Fri (10 AM - 4 PM)</td>
+                    <!--<td><a href="#" class="btn">Book Now</a></td>-->
+                </tr>
+
+                <!-- Dynamic doctor entries -->
+                {% for doc in doctors %}
+                <tr>
+                    <td>{{ doc.name }}</td>
+                    <td>{{ doc.experience }} years</td>
+                    <td>{{ doc.specialist }}</td>
+                    <td>{{ doc.qualifications }}</td>
+                    <td>{{ doc.availability }}</td>
+                    <!--<td><a href="#" class="btn">Book Now</a></td>-->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

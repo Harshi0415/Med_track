@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome | MedTrack</title>
+  <style>
+    body {
+      background-image: url(https://tse2.mm.bing.net/th/id/OIP.W-KOh-GZcQ9kDTcbZMIomgHaEo?pid=Api&P=0&h=180);
+      background-size: cover;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+    }
+
+    header {
+      background-color: #0b95df;
+      color: black;
+      padding: 20px;
+      font-size: 90px;
+      text-align: center;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin-left: 40%;
+
+      font-size: 28px;
+
+    }
+
+    .logout-button {
+      background-color: #f41b0f;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .flashes {
+      list-style-type: none;
+      padding: 10px 20px;
+      margin: 10px auto;
+      max-width: 800px;
+    }
+
+    .flash-success {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 10px;
+      border-left: 6px solid #28a745;
+      margin-bottom: 10px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin: 50px auto 20px;
+      max-width: 1000px;
+    }
+
+    .card {
+      width: 220px;
+      height: 140px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+      text-align: center;
+    }
+
+    .card:hover,
+    .insight-card:hover {
+      transform: scale(1.05);
+    }
+
+    .card-icon {
+      font-size: 36px;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .insights-section {
+      max-width: 1000px;
+      margin-left: 20%;
+      margin-right: 20%;
+      margin-top: 60px;
+
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .insights-section h2 {
+      color: #0077b6;
+      margin-bottom: 50px;
+
+    }
+
+    .insight-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .insight-card {
+      background-color: #f0f8ff;
+      padding: 20px;
+      width: 250px;
+      border-radius: 10px;
+      border-left: 6px solid #0077b6;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .insight-card h4 {
+      color: #023e8a;
+      margin-bottom: 10px;
+    }
+
+    .insight-card p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin-top: 50px;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-container">
+      <div>Welcome to MedTrack</div>
+      <a href="{{ url_for('logout') }}">
+        <button type="submit" class="logout-button">Logout</button>
+        </form>
+    </div>
+  </header>
+
+  <!-- Flash Messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  <ul class="flashes">
+    {% for category, message in messages %}
+    <li class="flash-{{ category }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
+
+  <!-- Top Cards -->
+  <div class="container">
+    <a href="{{ url_for('patient') }}" style="text-decoration: none; color: inherit;">
+      <div class="card">
+        <div class="card-icon">👤</div>
+        <div class="card-title">Patient Details</div>
+      </div>
+    </a>
+
+    <a href="{{ url_for('specialist') }}" style="text-decoration: none; color: inherit;">
+      <div class="card">
+        <div class="card-icon">🧑‍⚕</div>
+        <div class="card-title">Doctor Details</div>
+      </div>
+    </a>
+
+    <a href="{{ url_for('book_appointment') }}" style="text-decoration: none; color: inherit;">
+      <div class="card">
+        <div class="card-icon">📅</div>
+        <div class="card-title">Book an Appointment</div>
+      </div>
+    </a>
+
+    <a href="{{ url_for('prescriptions') }}" style="text-decoration: none; color: inherit;">
+      <div class="card">
+        <div class="card-icon">💊</div>
+        <div class="card-title">My Prescriptions</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Dashboard Insights Section -->
+  <div class="insights-section">
+    <h2>Dashboard Insights</h2>
+    <div class="insight-grid">
+      <a href="{{ url_for('health_tips') }}" style="text-decoration: none; color: inherit;">
+        <div class="insight-card">
+          <h4>Health Tips</h4>
+          <p>12 Important tips</p>
+        </div>
+      </a>
+
+      <a href="{{ url_for('registered_patients') }}" style="text-decoration: none; color: inherit;">
+        <div class="insight-card">
+          <h4>Registered Patients</h4>
+          <p>Here are the details of the registered Patients</p>
+        </div>
+      </a>
+
+      <!--<div class="insight-card">
+        <h4>Registered Patients</h4>
+        <p>Visit Doctor Container</p>
+      </div>-->
+
+      <a href="{{ url_for('basic_medicine') }}" style="text-decoration: none; color: inherit;">
+        <div class="insight-card">
+          <h4>Basic Medicine Used</h4>
+          <p>The most common medicines used by patients</p>
+        </div>
+      </a>
+
+
+
+
+      <!--<div class="insight-card">
+        <h4>To add Medicines</h4>
+        <p>Click on Prescriptions container</p>
+      </div>-->
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 MedTrack. All rights reserved.
+  </footer>
+
+</body>
+
+</html>

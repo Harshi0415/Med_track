@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registered Patients</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #0077b6;
+      text-align: center;
+    }
+
+    table {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    th {
+      background-color: #0077b6;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .back-btn {
+      display: block;
+      width: max-content;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: #0077b6;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Registered Patient Details</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <!--<th>Email</th>-->
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in patients %}
+      <tr>
+        <td>{{ p.name }}</td>
+        <!--<td>{{ p.email }}</td>-->
+        <td>{{ p.age or '-' }}</td>
+        <td>{{ p.gender or '-' }}</td>
+        <td>{{ p.contact or '-' }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="{{ url_for('dashboard') }}" class="back-btn">Back to Dashboard</a>
+
+</body>
+</html>

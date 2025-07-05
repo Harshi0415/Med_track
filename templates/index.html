@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MediTrack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">MediTrack</div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}" style="color:black" ;>Home</a></li>
+                <li><a href="{{ url_for('about') }}" style="color:black" ;>About</a></li>
+                <li><a href="{{ url_for('services') }}" style="color:black" ;>Services</a>
+                <li><a href="{{ url_for('contact') }}" style="color:black" ;>Contact</a></li>
+                <li><a href="{{ url_for('login') }}" style="color:black" ;>Login</a></li>
+                <li><a href="{{ url_for('signup') }}" style="color:black" ;>Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="image-container">
+            <img src="https://wallpapercave.com/wp/wp8800392.jpg">
+        <div class="overlay-content">
+            <h1>Welcome to Meditrack</h1>
+            
+                <p>Your health tracker is a personal health management tool that helps you monitor and manage your health and wellness. </p><br>
+                <p>It allows you to track various health metrics, set goals, and receive personalized recommendations based on your data. Whether you're looking to lose weight, manage a chronic condition, or simply maintain a healthy lifestyle, your health tracker can provide valuable insights and support to help you achieve your health goals.</p>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

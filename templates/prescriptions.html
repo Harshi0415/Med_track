@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Prescriptions | MedTrack</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f1f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dfe6e9;
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #0077b6;
+            color: #fff;
+        }
+
+        td {
+            background-color: #f8f9fa;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #0077b6;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>💊 My Prescriptions</h2>
+        <div style="text-align: right; margin-bottom: 20px;">
+    <a href="{{ url_for('add_medicine') }}" class="btn btn-primary">+ Add Medicine</a>
+</div>
+
+
+        <table>
+            <tr>
+                <th>Medicine Name</th>
+                <th>Dosage</th>
+                <th>Frequency</th>
+                <th>Prescribed By</th>
+                <th>Date</th>
+            </tr>
+
+            <!-- Example entries: Replace with Jinja loop in real use -->
+            {% for item in prescriptions %}
+            <tr>
+                <td>{{ item.medicine }}</td>
+                <td>{{ item.dosage }}</td>
+                <td>{{ item.frequency }}</td>
+                <td>{{ item.doctor }}</td>
+                <td>{{ item.date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="{{ url_for('dashboard') }}" class="back-link">← Back to Dashboard</a>
+    </div>
+</body>
+</html>

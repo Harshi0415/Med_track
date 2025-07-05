@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book an Appointment - MedTrack</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            background-color: #ffffff;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        form label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 13px;
+            color: #aaa;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Book an Appointment</h2>
+        <form action="book_appointment" method="POST">
+            <!-- Patient Info -->
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required />
+
+            <!-- Appointment Info -->
+            <label for="department">Department</label>
+            <select id="department" name="department" required>
+                <option value="">Select Department</option>
+                <option value="cardiology">Cardiology</option>
+                <option value="dermatology">Dermatology</option>
+                <option value="pediatrics">Pediatrics</option>
+                <option value="neurology">Neurology</option>
+                <option value="orthopedics">Orthopedics</option>
+                <option value="general-medicine">General Medicine</option>
+                <option value="gynecology">Gynecology</option>
+                <option value="dentistry">Dentistry</option>
+            </select>
+
+            <label for="doctor">Preferred Doctor</label>
+            <select id="doctor" name="doctor">
+                <option value="">Any Available</option>
+                <option value="dr-smith">Dr. Smith</option>
+                <option value="dr-jones">Dr. Jones</option>
+                <option value="dr-tan">Dr. Tan</option>
+                <option value="dr-lee">Dr. Lee</option>
+                <option value="dr-kumar">Dr. Kumar</option>
+                <option value="dr-chan">Dr. Chandrasekahran
+            </select>
+
+            <label for="date">Appointment Date</label>
+            <input type="date" id="date" name="date" required />
+
+            <label for="time">Preferred Time</label>
+            <input type="time" id="time" name="time" required />
+
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Symptoms, concerns, etc."></textarea>
+
+            <button type="submit">Book Appointment</button>
+        </form>
+        <div class="footer">Powered by MedTrack &copy; 2025</div>
+    </div>
+
+</body>
+
+</html>
