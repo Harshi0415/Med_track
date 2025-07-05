@@ -23,7 +23,7 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(hours=1)
 # ---------------------------------------
 # DynamoDB & SNS
 # ---------------------------------------
-AWS_REGION = os.environ.get('AWS_REGION_NAME', 'ap-south-1')
+AWS_REGION = os.environ.get('AWS_REGION_NAME', 'us-east-1')
 USERS_TABLE = os.environ.get('USERS_TABLE_NAME', 'MedTrackUsers')
 PATIENTS_TABLE = os.environ.get('PATIENTS_TABLE_NAME', 'MedTrackPatients')
 DOCTORS_TABLE = os.environ.get('DOCTORS_TABLE_NAME', 'MedTrackDoctors')
